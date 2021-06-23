@@ -61,7 +61,7 @@ const Navbar = () => {
   return (
     <NavbarContainer>
       <Nav>
-        <NavLogo>crowdfund</NavLogo>
+        <NavLogo>nyssah's crowdfund</NavLogo>
         <NavMenu>
           <NavItem>
             <NavLinks>About</NavLinks>
