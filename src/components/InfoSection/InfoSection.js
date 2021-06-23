@@ -78,12 +78,13 @@ const PledgeNo = styled.p`
 
 const PledgeButton = styled.button`
   border-style: none;
-  background-color: hsl(176, 50%, 47%);
+  background-color: ${({ stock }) =>
+    stock ? 'hsl(176, 50%, 47%)' : 'hsl(0, 0%, 48%)'};
   padding: 20px 40px;
   color: #fff;
   font-weight: bold;
   border-radius: 30px;
-  cursor: pointer;
+  cursor: ${({ stock }) => (stock ? 'pointer' : 'default')};
 `
 
 const InfoSection = ({ projectObjects }) => {
@@ -119,7 +120,9 @@ const InfoSection = ({ projectObjects }) => {
                   <PledgeNo>
                     <span>{projects.pledgeleft} </span>left
                   </PledgeNo>
-                  <PledgeButton>Select Reward</PledgeButton>
+                  <PledgeButton stock={projects.stock}>
+                    {projects.buttontext}
+                  </PledgeButton>
                 </RowDouble>
               </PledgeItemContainer>
             </PledgeWrapper>

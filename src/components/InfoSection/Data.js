@@ -6,6 +6,8 @@ export const ProjectObjects = [
     pledgeinfo:
       'Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis libero voluptas accusamus cumque veniam voluptatem at cupiditate odit fuga harum deserunt nostrum recusandae impedit, fugit, aliquam ratione!',
     pledgeleft: '101',
+    stock: true,
+    buttontext: 'Select Reward',
   },
   {
     id: 2,
@@ -14,6 +16,8 @@ export const ProjectObjects = [
     pledgeinfo:
       'Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis libero voluptas accusamus cumque veniam voluptatem at cupiditate odit fuga harum deserunt nostrum recusandae impedit, fugit, aliquam ratione!',
     pledgeleft: '64',
+    stock: true,
+    buttontext: 'Select Reward',
   },
   {
     id: 3,
@@ -22,5 +26,7 @@ export const ProjectObjects = [
     pledgeinfo:
       'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Rem eius rerum nemo at eveniet, dolores consequatur quas quasi tempore ad cupiditate nostrum possimus mollitia pariatur fugiat eos aut fugit, doloremque exercitationem. Explicabo laudantium consequatur illo inventore eaque natus. Eius, dolorum!',
     pledgeleft: '0',
+    stock: false,
+    buttontext: 'Out of stock',
   },
 ]
