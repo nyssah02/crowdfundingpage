@@ -4,6 +4,7 @@ import Navbar from './components/Navbar/Navbar'
 import TopSection from './components/TopSection/TopSection'
 import StatsSection from './components/StatsSection/StatsSection'
 import InfoSection from './components/InfoSection/InfoSection'
+import { ProjectObjects } from './components/InfoSection/Data'
 
 function App() {
   return (
@@ -12,7 +13,7 @@ function App() {
       <HeroSection />
       <TopSection />
       <StatsSection />
-      <InfoSection />
+      <InfoSection projectObjects={ProjectObjects} />
     </>
   )
 }

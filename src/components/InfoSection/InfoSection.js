@@ -40,6 +40,7 @@ const PledgeWrapper = styled.div`
   border-style: solid;
   border-color: lightgray;
   border-radius: 10px;
+  margin-top: 10px;
 `
 
 const PledgeItemContainer = styled.div`
@@ -60,12 +61,32 @@ const PledgeAmount = styled.p`
   font-size: 1rem;
   color: hsl(176, 50%, 47%);
 `
-const PledgeNo = styled.p``
-const PledgeButton = styled.button`
-  background-color: hsl(176, 50%, 47%);
+
+const PledgeP = styled.p`
+  color: hsl(0, 0%, 48%);
+  line-height: 30px;
+  padding: 30px 0;
+`
+const PledgeNo = styled.p`
+  color: hsl(0, 0%, 48%);
+  span {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #000;
+  }
 `
 
-const InfoSection = () => {
+const PledgeButton = styled.button`
+  border-style: none;
+  background-color: hsl(176, 50%, 47%);
+  padding: 20px 40px;
+  color: #fff;
+  font-weight: bold;
+  border-radius: 30px;
+  cursor: pointer;
+`
+
+const InfoSection = ({ projectObjects }) => {
   return (
     <InfoContainer>
       <InfoWrapper>
@@ -81,27 +102,29 @@ const InfoSection = () => {
             exercitationem tempore amet iure nihil.
           </AboutP>
         </AboutWrapper>
-        <PledgeWrapper>
-          <PledgeItemContainer>
-            <RowDouble>
-              <PledgeH2>Bamboo Stand</PledgeH2>
-              <PledgeAmount>Pledge $25 or more</PledgeAmount>
-            </RowDouble>
-            <RowSingle>
-              <AboutP>
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facere
-                fugiat porro, minus hic cumque possimus sunt aliquam neque,
-                aspernatur vero illo nisi expedita.
-              </AboutP>
-            </RowSingle>
-            <RowDouble>
-              <PledgeNo>
-                <span>101</span> left
-              </PledgeNo>
-              <PledgeButton>Select Reward</PledgeButton>
-            </RowDouble>
-          </PledgeItemContainer>
-        </PledgeWrapper>
+        {projectObjects.map((projects, index) => {
+          return (
+            <PledgeWrapper>
+              <PledgeItemContainer>
+                <RowDouble>
+                  <PledgeH2>{projects.pledgeh2}</PledgeH2>
+                  <PledgeAmount>
+                    Pledge ${projects.pledgeamount} or more
+                  </PledgeAmount>
+                </RowDouble>
+                <RowSingle>
+                  <PledgeP>{projects.pledgeinfo}</PledgeP>
+                </RowSingle>
+                <RowDouble>
+                  <PledgeNo>
+                    <span>{projects.pledgeleft} </span>left
+                  </PledgeNo>
+                  <PledgeButton>Select Reward</PledgeButton>
+                </RowDouble>
+              </PledgeItemContainer>
+            </PledgeWrapper>
+          )
+        })}
       </InfoWrapper>
     </InfoContainer>
   )
