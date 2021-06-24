@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 
 const InfoContainer = styled.div`
@@ -85,9 +85,14 @@ const PledgeButton = styled.button`
   font-weight: bold;
   border-radius: 30px;
   cursor: ${({ stock }) => (stock ? 'pointer' : 'default')};
+
+  &:hover {
+    transition: all 0.2s ease-in-out;
+    background-color: hsl(176, 72%, 28%);
+  }
 `
 
-const InfoSection = ({ projectObjects }) => {
+const InfoSection = ({ projectObjects, toggleSelect }) => {
   return (
     <InfoContainer>
       <InfoWrapper>
@@ -120,7 +125,7 @@ const InfoSection = ({ projectObjects }) => {
                   <PledgeNo>
                     <span>{projects.pledgeleft} </span>left
                   </PledgeNo>
-                  <PledgeButton stock={projects.stock}>
+                  <PledgeButton stock={projects.stock} onClick={toggleSelect}>
                     {projects.buttontext}
                   </PledgeButton>
                 </RowDouble>

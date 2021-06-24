@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import logo from '../../images/logo-mastercraft.svg'
 import bookmark from '../../images/icon-bookmark.svg'
@@ -61,6 +61,11 @@ const BackButton = styled.button`
   font-weight: bold;
   border-radius: 30px;
   cursor: pointer;
+
+  &:hover {
+    transition: all 0.2s ease-in-out;
+    background-color: hsl(176, 72%, 28%);
+  }
 `
 const BookmarkButton = styled.button`
   border-width: 0;
@@ -73,13 +78,24 @@ const BookmarkButton = styled.button`
   font-weight: bold;
   color: hsl(0, 0%, 38%);
   cursor: pointer;
+
+  &.clicked {
+    color: #f6f6f6;
+    background-color: hsl(176, 50%, 47%);
+  }
 `
 
 const BookmarkLogo = styled.img`
   padding-right: 20px;
 `
 
-const TopSection = () => {
+const TopSection = ({ toggleSelect }) => {
+  const [isClicked, setIsClicked] = useState(false)
+
+  const bookmarkHandler = () => {
+    setIsClicked(!isClicked)
+  }
+
   return (
     <TopContainer>
       <TopLogoContainer>
@@ -95,12 +111,15 @@ const TopSection = () => {
         </TopTextContainer>
         <TopButtonsContainer>
           <ButtonContainer>
-            <BackButton>Back this project</BackButton>
+            <BackButton onClick={toggleSelect}>Back this project</BackButton>
           </ButtonContainer>
           <ButtonContainer>
-            <BookmarkButton>
+            <BookmarkButton
+              onClick={bookmarkHandler}
+              className={isClicked && 'clicked'}
+            >
               <BookmarkLogo src={bookmark} />
-              Bookmark
+              {isClicked ? 'Bookmarked' : 'Bookmark'}
             </BookmarkButton>
           </ButtonContainer>
         </TopButtonsContainer>
